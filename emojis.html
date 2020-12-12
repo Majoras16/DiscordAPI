@@ -4,20 +4,24 @@
   <title>Discord API</title>
  </head>
  <body>
-  
+  <form action="action" method="post" action="https://discordapp.com/api/oauth2/token" target="output_frame">
+
+  </form>
+  <iframe name="output_frame" src="" id="output_frame" width="XX" height="YY">
+  </iframe>
  </body>
  <script>
 let se = location.search;
 if(se.substring(0,6) === "?code=") {
  let code = se.substring(6,se.length);
- let xhr = new XMLHttpRequest("POST","https://discordapp.com/api/oauth2/token");
- xhr.onload = function(e) {
-  alert(e);
- }
- xhr.onerror = function(e) {
-  alert(e.description);
- }
- xhr.send("client_id=787199247157297152&client_secret=s3OB-WCkZbYYWMr4dSLZI-nao8YNaYpq&grant_type=authorization_code&code="+code+"&redirect_uri="+encodeURI(location.href)+"&scope=guilds");
+ "client_id=787199247157297152&client_secret=s3OB-WCkZbYYWMr4dSLZI-nao8YNaYpq&grant_type=authorization_code&code="+code+"&redirect_uri="+encodeURI(location.href)+"&scope=guilds".split("&").forEach(function(p) {
+  let e = document.createElement("input");
+  e.value = p.split("=")[1];
+  e.name = p.split("=")[0];
+  e.id = p.split("=")[0];
+  document.querySelectorAll("form")[0].appendChild(e);
+ });
+ document.querySelectorAll("form")[0].submit();
 }
  </script>
 </html>
