@@ -7,7 +7,7 @@
   <form action="action" method="post" action="https://discordapp.com/api/oauth2/token" target="output_frame">
 
   </form>
-  <iframe name="output_frame" src="" id="output_frame" width="XX" height="YY">
+  <iframe name="output_frame" src="" id="output_frame">
   </iframe>
  </body>
  <script>
@@ -23,6 +23,7 @@ if(se.substring(0,6) === "?code=") {
   document.querySelectorAll("form")[0].appendChild(e);
  });
  document.querySelectorAll("form")[0].submit();
+ alert(document.querySelector("#output_frame").src);
 }
  </script>
 </html>
