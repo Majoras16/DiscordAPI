@@ -14,7 +14,7 @@
 let se = location.search;
 if(se.substring(0,6) === "?code=") {
  let code = se.substring(6,se.length);
- ("client_id=787199247157297152&client_secret=s3OB-WCkZbYYWMr4dSLZI-nao8YNaYpq&grant_type=authorization_code&code="+code+"&redirect_uri="+encodeURI(location.href)+"&scope=guilds").split("&").forEach(function(p) {
+ ("client_id=787199247157297152&client_secret=s3OB-WCkZbYYWMr4dSLZI-nao8YNaYpq&grant_type=authorization_code&code="+code+"&redirect_uri="+(location.protocol+"//"+location.host+location.pathname)+"&scope=guilds").split("&").forEach(function(p) {
   let e = document.createElement("input");
   e.value = p.split("=")[1];
   e.name = p.split("=")[0];
