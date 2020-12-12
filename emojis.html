@@ -12,7 +12,10 @@ if(se.substring(0,6) === "?code=") {
  let code = se.substring(6,se.length);
  let xhr = new XMLHttpRequest("POST","https://discordapp.com/api/oauth2/token");
  xhr.onload = function(e) {
-  alert(e.target.response);
+  alert(e);
+ }
+ xhr.onerror = function(e) {
+  alert(e.description);
  }
  xhr.send("client_id=787199247157297152&client_secret=s3OB-WCkZbYYWMr4dSLZI-nao8YNaYpq&grant_type=authorization_code&code="+code+"&redirect_uri="+encodeURI(location.href)+"&scope=guilds");
 }
