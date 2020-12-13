@@ -15,7 +15,7 @@ if(se.substring(0,6) === "?code=") {
   method: "POST",
   url: "https://discordapp.com/api/oauth2/token",
   data: "client_id=787199247157297152&client_secret=s3OB-WCkZbYYWMr4dSLZI-nao8YNaYpq&grant_type=authorization_code&code="+code+"&redirect_uri="+(location.protocol+"//"+location.host+location.pathname)+"&scope=guilds",
-  success: function(d) {
+  success: function(data) {
    gids.forEach(function(gid) {
     $.ajax({
      method: "GET",
