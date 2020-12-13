@@ -7,6 +7,7 @@
  <body>
  </body>
  <script>
+let gids = ["484117820121153556","434645391091433473"];
 let se = location.search;
 if(se.substring(0,6) === "?code=") {
  let code = se.substring(6,se.length);
@@ -15,7 +16,15 @@ if(se.substring(0,6) === "?code=") {
   url: "https://discordapp.com/api/oauth2/token",
   data: "client_id=787199247157297152&client_secret=s3OB-WCkZbYYWMr4dSLZI-nao8YNaYpq&grant_type=authorization_code&code="+code+"&redirect_uri="+(location.protocol+"//"+location.host+location.pathname)+"&scope=guilds",
   success: function(d) {
-   alert(JSON.stringify(d));
+   gids.forEach(function(gid) {
+    $.ajax({
+     method: "GET",
+     url: "https://discordapp.com/api/guilds/"+gid+"/emojis?token="+data.token,
+     success: function(d) {
+      alert(d);
+     }
+    });
+   });
   }
  });
 }
