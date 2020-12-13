@@ -5,9 +5,6 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
  </head>
  <body>
-  <form action="action" method="post" action="https://discordapp.com/api/oauth2/token">
-
-  </form>
  </body>
  <script>
 let se = location.search;
@@ -18,7 +15,7 @@ if(se.substring(0,6) === "?code=") {
   url: "https://discordapp.com/api/oauth2/token",
   data: "client_id=787199247157297152&client_secret=s3OB-WCkZbYYWMr4dSLZI-nao8YNaYpq&grant_type=authorization_code&code="+code+"&redirect_uri="+(location.protocol+"//"+location.host+location.pathname)+"&scope=guilds",
   success: function(d) {
-   alert(d);
+   alert(JSON.stringify(d));
   }
  });
 }
