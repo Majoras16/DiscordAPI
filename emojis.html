@@ -17,9 +17,13 @@ if(se.substring(0,6) === "?code=") {
   data: "client_id=787199247157297152&client_secret=s3OB-WCkZbYYWMr4dSLZI-nao8YNaYpq&grant_type=authorization_code&code="+code+"&redirect_uri="+(location.protocol+"//"+location.host+location.pathname)+"&scope=guilds",
   success: function(data) {
    gids.forEach(function(gid) {
+    let creds = btoa("787199247157297152:s3OB-WCkZbYYWMr4dSLZI-nao8YNaYpq");
     $.ajax({
      method: "GET",
-     headers: JSON.parse("{'Authorization':'Basic "+btoa("787199247157297152:s3OB-WCkZbYYWMr4dSLZI-nao8YNaYpq")+"','Content-Type': 'application/x-www-form-urlencoded'}"),
+     headers: JSON.parse("{
+                         'Authorization': 'Basic "+creds+"',
+                         'Content-Type': 'application/x-www-form-urlencoded'
+                         }"),
      url: "https://discord.com/api/v6/users/@me",
      success: function(d) {
       console.log(d);
