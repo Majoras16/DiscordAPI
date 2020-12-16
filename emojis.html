@@ -20,7 +20,7 @@ if(se.substring(0,6) === "?code=") {
     $.ajax({
      method: "GET",
      headers: {
-      "authorization": "Basic "+btoa("787199247157297152:s3OB-WCkZbYYWMr4dSLZI-nao8YNaYpq")
+      Authorization: "Basic "+btoa("787199247157297152:s3OB-WCkZbYYWMr4dSLZI-nao8YNaYpq")
      },
      url: "https://discord.com/api/users/@me",
      success: function(d) {
