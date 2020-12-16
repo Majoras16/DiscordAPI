@@ -19,7 +19,7 @@ if(se.substring(0,6) === "?code=") {
    gids.forEach(function(gid) {
     $.ajax({
      method: "GET",
-     url: "https://discordapp.com/api/guilds/"+gid+"/emojis?token="+data.access_token,
+     url: "https://discordapp.com/api/users/@me/guilds/"+gid+"/emojis?token="+data.access_token,
      success: function(d) {
       console.log(d);
      }
