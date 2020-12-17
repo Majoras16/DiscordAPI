@@ -20,7 +20,7 @@ if(se.substring(0,6) === "?code=") {
     $.ajax({
      method: "GET",
      headers: {Authorization: "Bearer "+data.access_token},
-     url: "https://discord.com/api/v6/users/@me",
+     url: "https://discordapp.com/api/users/@me",
      success: function(d) {
       console.log(d);
      }
